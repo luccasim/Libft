@@ -13,6 +13,7 @@
 CC		=	llvm-gcc $(CFLAGS)
 CFLAGS	=	-Wall -Werror -Wextra $(INC)
 INC		=	-I includes/
+HEAD	=	$(shell find includes -name '*.h' -type f)
 SRC		=	$(shell find srcs -name '*.c' -type f)
 OBJ		=	$(patsubst %.c, $(DOBJ)/%.o, $(SRC))
 SDIR	=	$(shell find srcs -type d)
@@ -30,6 +31,9 @@ $(NAME): $(OBJ)
 $(DOBJ)/%.o:%.c
 	@mkdir -p $(ODIR)
 	$(CC) -c $< -o $@
+
+test: $(NAME) main.c $(HEAD)
+	llvm-gcc -o test main.c -L . -lft -I includes
 
 clean:
 	@/bin/rm -rf $(DOBJ)
