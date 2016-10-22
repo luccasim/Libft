@@ -20,7 +20,7 @@
 # include <stdlib.h>
 # include "libft.h"
 
-# define BUF_SIZE 4200
+# define BUF_SIZE 1
 
 int		get_next_line(int fd, char **line);
 
