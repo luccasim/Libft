@@ -1,27 +1,14 @@
 #include "libft.h"
-#include "ft_printf.h"
-#include "ft_time.h"
-#include "ft_random.h"
-#include <stdio.h>
+#include "ft_unix.h"
 
-#define PCLOCK 		ft_printf("Clock : [%llu]\n", CLOCK)
-#define PUTNB(a)	ft_printf(#a " = %i" ENDL, a)
-
-int main (void)
+int main (int ac, char **av)
 {
-	int i = 0, j = 0;
-	uint32_t s, e;
-	ft_printf("Bonjour il est {w:1:%hk} heure!\nClock  : [%llu] \n", TIME, CLOCK);
-	s = CLOCK;
-	while (i < 3000000)
-	{
-		PCLOCK;
-		i = RAND(0,3000000);
-		PUTNB(i);
-		j++;
-	}
-	e = CLOCK;
-	ft_printf("Nombre de boucles = %i\nTemps de boucle %f\n", j, CPS(e - s));
-	printf("printf = %f\n", CPS(e -s));
+	int nbr_arg;
+	t_list *file;
+	file = 0;
+	nbr_arg = ft_options(&av, 0, 0);
+	if (nbr_arg == 1)
+		file = ft_stdin_file();
+	ft_lst_for_each(file, ft_putendl);
 	return (0);
 }

@@ -14,6 +14,7 @@
 # define FT_UNIX_H
 
 # include "ft_printf.h"
+# include "list.h"
 
 # define ERROR(a) 		ft_error(0, a)
 # define PERROR(a) 		ft_error(a, "error")
@@ -23,6 +24,7 @@
 
 int		ft_error(char *error, char *msg);
 int		ft_options(char ***av, char *opt, int32_t size);
+t_list	*ft_stdin_file(void);
 char	*ft_options_sglt(void);
 
 #endif

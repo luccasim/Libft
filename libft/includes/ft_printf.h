@@ -25,6 +25,7 @@
 # define NBR(a)		"{" WORD_OPT "}" #a " = {e}{" NBR_OPT "}%lli{e}"
 
 # define PUTS(a)		ft_printf(WORD ENDL, a)
+# define PUTI(a)		ft_printf("{y:1:%lli}\n", a)
 
 int		ft_printf(char *str, ...);
 int		ft_fprintf(int fd, char *str, ...);
