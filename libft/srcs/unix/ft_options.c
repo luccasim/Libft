@@ -40,11 +40,6 @@ static char	*handle_sglt(char c, uint32_t act)
 	return (sglt);
 }
 
-char		*ft_options_sglt(void)
-{
-	return (handle_sglt(0, 3));
-}
-
 static int	options_loop(char *str, char *option, char *buf, uint32_t *flag)
 {
 	if (*str != '-' || !option)
@@ -83,6 +78,11 @@ static int	number_arg(int32_t nbre_arg, int32_t size)
 		}
 	}
 	return (nbre_arg);
+}
+
+char		*ft_options_sglt(void)
+{
+	return (handle_sglt(0, 3));
 }
 
 int			ft_options(char ***arg, char *opt, int32_t size)

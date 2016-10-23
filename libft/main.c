@@ -1,19 +1,24 @@
 #include "libft.h"
 #include "ft_unix.h"
-
-void output(t_list *elem)
-{
-	ft_printf("{r:1:%s}\n",elem->content);
-}
+#include <string.h>
 
 int main (int ac, char **av)
 {
-	int nbr_arg;
-	t_list *file;
-	file = 0;
-	nbr_arg = ft_options(&av, 0, 0);
-	if (nbr_arg == 1)
-		file = ft_stdin_file();
-	ft_lstiter(file, output);
+	// char *dst = ft_strdup("test             ok");
+	// char *dst2 = ft_strdup("test             ok");
+	char dst[50] = {0};
+	char dst2[50] = {0};
+	uint32_t i,k,j;
+
+	i = 0;
+	while (i < 6)
+	{
+		dst[4 + i] = 'z';
+		dst2[4 + i] = 'z';
+		++i;
+	}
+	k = strlcat(dst, "abc", 6);
+	j = ft_strlcat(dst2, "abc", 6);
+	ft_printf("[{g:1}{%i}{%s}{e}][{w:1}{%i}{%s}{e}]\n", k, dst, j, dst2);
 	return (0);
 }

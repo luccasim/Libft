@@ -17,6 +17,8 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char	*new;
 	char	*cpy;
 
+	if (!s || !f)
+		return (0);
 	new = ft_strnew(ft_strlen(s));
 	if (!new)
 		return (new);

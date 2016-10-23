@@ -19,35 +19,30 @@ static int		ft_isspace(int c)
 	return (0);
 }
 
-static int		test_trim(char *str)
+static int		test_trim(char const *str)
 {
-	if (!str)
-		return (0);
-	while (*str)
+	unsigned int i;
+
+	i = 0;
+	while (str[i])
 	{
-		if (!ft_isspace(*str))
-			return (1);
-		str++;
+		if (!ft_isspace(str[i]))
+			return (i);
+		i++;
 	}
 	return (0);
 }
 
 char			*ft_strtrim(char const *s)
 {
-	unsigned int	i;
+	unsigned int	start;
 	unsigned int	end;
-	const char		*tmp;
 
-	if (!test_trim((char *)s))
-		return (ft_strdup(""));
-	i = 0;
+	if (!s)
+		return (0);
+	start = test_trim(s);
 	end = ft_strlen(s);
-	tmp = s;
-	while (ft_isspace(s[i]))
-		i++;
-	while (*s)
-		s++;
-	while (ft_isspace(*--s))
+	while (end && ft_isspace(s[end - 1]))
 		end--;
-	return (ft_strsub(tmp, i, end - i));
+	return (ft_strsub(s, start, end - start));
 }

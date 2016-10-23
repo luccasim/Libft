@@ -16,11 +16,17 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
 	char	*s;
 
-	s = s1;
-	while (*s)
-		s++;
-	while (n--)
-		*s++ = *s2++;
-	*s = 0;
+	if (n)
+	{
+		s = s1;
+		while (*s)
+			s++;
+		while (n--)
+		{
+			if (*s2)
+				*s++ = *s2++;
+		}
+		*s = 0;
+	}
 	return (s1);
 }
