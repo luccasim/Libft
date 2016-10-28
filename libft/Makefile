@@ -10,8 +10,8 @@
 #                                                                              #
 #******************************************************************************#
 
-CC		=	llvm-gcc $(CFLAGS)
-CFLAGS	=	-Wall -Werror -Wextra $(INC)
+CC		=	llvm-gcc #$(CFLAGS)
+CFLAGS	=	-Wall -Werror -Wextra
 INC		=	-I includes/
 HEAD	=	$(shell find includes -name '*.h' -type f)
 SRC		=	$(shell find srcs -name '*.c' -type f)
@@ -30,7 +30,7 @@ $(NAME): $(OBJ)
 
 $(DOBJ)/%.o:%.c
 	@mkdir -p $(ODIR)
-	$(CC) -c $< -o $@
+	$(CC) $(INC) -c $< -o $@
 
 test: $(NAME) main.c $(HEAD)
 	llvm-gcc -o test main.c -L . -lft -I includes

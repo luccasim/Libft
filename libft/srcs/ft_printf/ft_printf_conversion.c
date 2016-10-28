@@ -27,12 +27,14 @@ t_func	g_tab[] =
 	{ft_printf_long, 'C'},
 	{ft_printf_long, 'S'},
 	{ft_printf_long, 'F'},
+	{ft_printf_long, 'E'},
 	{ft_printf_number, 'n'},
 	{ft_printf_date, 'k'},
 	{ft_printf_string, 's'},
 	{ft_printf_char, 'c'},
 	{ft_printf_address, 'p'},
 	{ft_printf_float, 'f'},
+	{ft_printf_float, 'e'},
 	{ft_printf_bin, 'b'},
 	{NULL, -1}
 };

@@ -13,9 +13,10 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define MIN(a, b) ((a < b) ? a : b)
-# define MAX(a, b) ((a > b) ? a : b)
-# define ABS(a, b) ((a < b) ? b - a : a - b)
+# define MIN(a, b) 	((a < b) ? a : b)
+# define MAX(a, b) 	((a > b) ? a : b)
+# define DIST(a, b) ((a < b) ? b - a : a - b)
+# define ABS(a)		((a > 0) ? a : -a)
 
 # include "list.h"
 

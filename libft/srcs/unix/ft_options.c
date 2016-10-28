@@ -43,7 +43,7 @@ static char	*handle_sglt(char c, uint32_t act)
 static int	options_loop(char *str, char *option, char *buf, uint32_t *flag)
 {
 	if (*str != '-' || !option)
-		return (SUCCES);
+		return (SUCCESS);
 	while (*str)
 	{
 		if (*str == '-')
@@ -66,7 +66,7 @@ static int	number_arg(int32_t nbre_arg, int32_t size)
 		return (nbre_arg);
 	if (size < 0)
 	{
-		if (nbre_arg > size)
+		if (nbre_arg > ABS(size))
 			return (ERROR("Too much arguments"));
 	}
 	else
@@ -110,6 +110,5 @@ int			ft_options(char ***arg, char *opt, int32_t size)
 			++av;
 		}
 	}
-	nbre_arg++;
-	return (number_arg(nbre_arg, size));
+	return (number_arg(++nbre_arg, size));
 }

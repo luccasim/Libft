@@ -43,7 +43,7 @@ static double	get_mantisse(long long m)
 	return (ret);
 }
 
-static double	get_value(long long s, long long e, long long m, int size)
+static double	get_value(long long s, long long e, long long m)
 {
 	double		ret;
 	double		mantisse;
@@ -62,21 +62,29 @@ static double	get_value(long long s, long long e, long long m, int size)
 		return (ft_printf_tmp("inf", -1, SET));
 	if (c == 3)
 		return (ft_printf_tmp("nan", -1, SET));
-	ft_printf_putdouble(ret, size);
 	return (ret);
 }
 
-int				ft_printf_double(double f, int size)
+static void		double_output(double f, int size, char conversion)
+{
+	if (conversion == 'f')
+		ft_printf_putdouble(f, size);
+	else if (conversion == 'e')
+		ft_printf_double_scient(f, size);
+}
+
+int				ft_printf_double(double f, int size, char conversion)
 {
 	long long	nb;
 	long long	s;
 	long long	e;
 	long long	m;
 
+	double_output(f, size, conversion);
 	nb = *(long long *)&f;
 	s = (nb >> 63);
 	e = ((nb & 0x7FF0000000000000) >> 52);
 	m = (nb & 0x000FFFFFFFFFFFFF);
-	f = get_value(s, e, m, size);
+	f = get_value(s, e, m);
 	return (1);
 }

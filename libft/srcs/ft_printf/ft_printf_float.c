@@ -36,7 +36,7 @@ int				ft_printf_float(va_list ap)
 	flags = get_printf_flags(GET_FLAGS);
 	f = va_arg(ap, double);
 	size = (flags->precision < 0) ? 6 : flags->precision;
-	ft_printf_double(f, size);
+	ft_printf_double(f, size, flags->conversion);
 	write_float(flags, f);
 	return (0);
 }

@@ -16,16 +16,17 @@
 # include <stdarg.h>
 # include <inttypes.h>
 
-# define WORD_OPT	"w:1"
-# define NBR_OPT	"y:1"
-# define WORD_LEN	"0"
+# define ENDL			"\n"
+# define WORD			"{%s}"
+# define NBR			"{y:1:%lli}"
 
-# define ENDL		"\n"
-# define WORD		"{" WORD_OPT "}%" WORD_LEN "s{e}"
-# define NBR(a)		"{" WORD_OPT "}" #a " = {e}{" NBR_OPT "}%lli{e}"
-
-# define PUTS(a)		ft_printf(WORD ENDL, a)
-# define PUTI(a)		ft_printf("{y:1:%lli}\n", a)
+# define PUTSTR(a)		ft_printf("{w:1:%s}\n", a)
+# define PUTNBR(a)		ft_printf("{y:1:%lli}\n", a)
+# define PUTDB(a)		ft_printf("{c:1:%f}\n", a)
+# define PUTBIN(a)		ft_printf("{d:1:%b}\n", a)
+# define PUTTIME(a)		ft_printf("{g:1:%hk}\n", a)
+# define PUTDATE(a)		ft_printf("{b:1:%lk}\n", a)
+# define PUTPTR(a)		ft_printf("{p:1:%p}\n", a)
 
 int		ft_printf(char *str, ...);
 int		ft_fprintf(int fd, char *str, ...);
