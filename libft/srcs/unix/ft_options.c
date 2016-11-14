@@ -67,7 +67,7 @@ static int	number_arg(int32_t nbre_arg, int32_t size)
 	if (size < 0)
 	{
 		if (nbre_arg > ABS(size))
-			return (ERROR("Too much arguments"));
+			return (PERROR("Too much arguments"));
 	}
 	else
 	{

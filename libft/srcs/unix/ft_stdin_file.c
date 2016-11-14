@@ -13,7 +13,9 @@ t_list	*ft_stdin_file(void)
 	line = 0;
 	while (get_next_line(0, &line))
 	{
-		tmp = ft_lstnew(line, ft_strlen(line));
+		if (!line)
+			return (NULL);
+		tmp = ft_lstnew(line, ft_strlen(line) + 1);
 		if (!buf)
 			buf = tmp;
 		else

@@ -13,7 +13,6 @@
 #include "list.h"
 #include "libft.h"
 #include <stdlib.h>
-#include <string.h>
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {

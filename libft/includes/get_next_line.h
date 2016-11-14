@@ -20,7 +20,16 @@
 # include <stdlib.h>
 # include "libft.h"
 
-# define BUF_SIZE 1
+# define BUF_SIZE 	100
+# define GNL_ERROR	-1
+# define GNL_READ	1
+# define GNL_END	0
+
+typedef struct	s_fd
+{
+	char		*str;
+	int			fd;
+}				t_fd;
 
 int		get_next_line(int fd, char **line);
 

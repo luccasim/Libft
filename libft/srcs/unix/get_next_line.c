@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "ft_printf.h"
 
 static char			*save_char(char *cpy, char **line, int *lec)
 {
@@ -34,7 +35,7 @@ static char			*save_char(char *cpy, char **line, int *lec)
 		i++;
 	}
 	*line = cpy;
-	*lec = (ft_strlen(cpy) != 0) ? 1 : 0;
+	*lec = (*cpy) ? 1 : 0;
 	return (NULL);
 }
 
@@ -51,57 +52,54 @@ static char			*ft_realloc(char *s1, char const *s2)
 	return (new);
 }
 
-static t_list		*find_fd(t_list *lst, size_t fd)
+static t_list		*find_fd(int fd)
 {
-	t_list		*tmp;
-	t_list		*new;
-
-	if (lst->content_size == 0)
+	static t_list	*list = NULL;
+	t_list			*tmp;
+	t_list			*new;
+	t_fd			content;
+	
+	content.fd = fd;
+	content.str = NULL;
+	if (!list)
+		return (list = ft_lstnew(&content, sizeof(content)));
+	else
 	{
-		lst->content_size = fd;
-		return (lst);
+		tmp = list;
+		while (tmp)
+		{
+			if (fd == ((t_fd*)(tmp->content))->fd)
+				return (tmp);
+			new = tmp;
+			tmp = tmp->next;
+		}
+		tmp = ft_lstnew(&content, sizeof(content));
+		new->next = tmp;
 	}
-	if (fd == lst->content_size)
-		return (lst);
-	tmp = lst;
-	while (tmp)
-	{
-		if (fd == tmp->content_size)
-			return (tmp);
-		tmp = tmp->next;
-	}
-	new = ft_lstnew("NULL", 0);
-	new->content_size = fd;
-	while (lst->next)
-		lst = lst->next;
-	lst->next = new;
-	return (new);
+	return (tmp);
 }
 
 int					get_next_line(int fd, char **line)
 {
 	char			buf[BUF_SIZE + 1];
 	char			*cpy;
-	static t_list	*save = NULL;
 	t_list			*lst;
 	int				ret;
 
-	if (!save)
-		save = ft_lstnew("NULL", 0);
-	if (line == NULL || fd < 0 || save == NULL)
-		return (-1);
-	lst = find_fd(save, (size_t)fd);
-	cpy = lst->content;
+	if (line == NULL || fd < 0)
+		return (GNL_ERROR);
+	lst = find_fd(fd);
+	cpy = ((t_fd*)(lst->content))->str;
 	while ((ret = read(fd, buf, BUF_SIZE)))
 	{
 		if (ret == -1)
-			return (ret);
+			return (GNL_ERROR);
 		buf[ret] = 0;
 		cpy = ft_realloc(cpy, buf);
-		if ((lst->content = save_char(cpy, line, &ret)))
-			return (1);
+		if ((((t_fd*)(lst->content))->str = save_char(cpy, line, &ret)))
+			return (GNL_READ);
 	}
-	if ((lst->content = save_char(cpy, line, &ret)))
-		return (1);
+	if ((((t_fd*)(lst->content))->str = save_char(cpy, line, &ret)))
+		return (GNL_READ);
 	return (ret);
 }
