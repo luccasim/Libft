@@ -1,1 +1,0 @@
-../minilibx_macos/mlx_new_window.h

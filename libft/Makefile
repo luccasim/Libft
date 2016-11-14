@@ -6,13 +6,13 @@
 #    By: luccasim <luccasim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/11 15:48:23 by luccasim          #+#    #+#              #
-#    Updated: 2016/03/29 17:04:22 by luccasim         ###   ########.fr        #
+#    Updated: 2016/11/14 17:21:19 by luccasim         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 CC		=	llvm-gcc $(CFLAGS)
 CFLAGS	=	-Wall -Werror -Wextra
-INC		=	-I includes/
+INC		=	-I includes/ -I minilibx_macos/
 HEAD	=	$(shell find includes -name '*.h' -type f)
 MLX		=	-L minilibx_macos/ -lmlx -framework OpenGL -framework AppKit
 SRC		=	$(shell find srcs -name '*.c' -type f)

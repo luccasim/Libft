@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_mlx.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luccasim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/14 17:12:31 by luccasim          #+#    #+#             */
+/*   Updated: 2016/11/14 17:20:18 by luccasim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_MLX_H
 # define FT_MLX_H
 
@@ -9,17 +21,17 @@
 
 typedef enum	e_mlx_color
 {
-	MLX_RED 	= 0x00FF0000,
-	MLX_GREEN 	= 0x0000FF00,
-	MLX_BLUE	= 0x000000FF,
-	MLX_WHITE	= 0x00FFFFFF,
-	MLX_BROWN	= 0x00BD8D46,
-	MLX_YELLOW	= 0x00FFF168,
-	MLX_ORANGE	= 0x00FC7F3C,
-	MLX_DARK	= 0x00000000
+	MLX_RED = 0x00FF0000,
+	MLX_GREEN = 0x0000FF00,
+	MLX_BLUE = 0x000000FF,
+	MLX_WHITE = 0x00FFFFFF,
+	MLX_BROWN = 0x00BD8D46,
+	MLX_YELLOW = 0x00FFF168,
+	MLX_ORANGE = 0x00FC7F3C,
+	MLX_DARK = 0x00000000
 }				t_mlx_color;
 
-typedef enum 	e_mlx_key
+typedef enum	e_mlx_key
 {
 	MLX_KEY_A = 0,
 	MLX_KEY_B = 11,
@@ -90,24 +102,24 @@ typedef struct	s_image
 	int			size_line;
 }				t_image;
 
-void		*ft_mlx_init_sglt(void);
+void			*ft_mlx_init_sglt(void);
 /*
 ** Window
 */
-t_window	*ft_mlx_window_new(char *name, uint32_t height, uint32_t width);
-void		ft_mlx_window_info(t_window *w);
-void		ft_mlx_window_pixel_put(t_window *w, int x, int y, int c);
-void		ft_mlx_window_del(t_window *win);
-void		ft_mlx_window_clear(t_window *win);
+t_window		*ft_mlx_window_new(char *name, uint32_t height, uint32_t width);
+void			ft_mlx_window_info(t_window *w);
+void			ft_mlx_window_pixel_put(t_window *w, int x, int y, int c);
+void			ft_mlx_window_del(t_window *win);
+void			ft_mlx_window_clear(t_window *win);
 /*
 ** Image
 */
-t_image		*ft_mlx_image_new(uint32_t height, uint32_t width);
-void		ft_mlx_image_pixel_put(t_image *i, int x, int y, int c);
-uint32_t	ft_mlx_image_pixel_get(t_image *i, int x, int y);
-void		ft_mlx_image_clear(t_image *i);
-void		ft_mlx_image_info(t_image *i);
-void		ft_mlx_image_fill(t_image *i, int color);
-void		ft_mlx_image_del(t_image *img);
+t_image			*ft_mlx_image_new(uint32_t height, uint32_t width);
+void			ft_mlx_image_pixel_put(t_image *i, int x, int y, int c);
+uint32_t		ft_mlx_image_pixel_get(t_image *i, int x, int y);
+void			ft_mlx_image_clear(t_image *i);
+void			ft_mlx_image_info(t_image *i);
+void			ft_mlx_image_fill(t_image *i, int color);
+void			ft_mlx_image_del(t_image *img);
 
 #endif

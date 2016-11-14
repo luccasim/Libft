@@ -6,7 +6,7 @@
 /*   By: luccasim <luccasim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/04 02:06:04 by luccasim          #+#    #+#             */
-/*   Updated: 2016/03/22 02:11:13 by luccasim         ###   ########.fr       */
+/*   Updated: 2016/11/14 17:13:15 by luccasim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ typedef struct	s_fd
 	int			fd;
 }				t_fd;
 
-int		get_next_line(int fd, char **line);
+int				get_next_line(int fd, char **line);
 
 #endif
