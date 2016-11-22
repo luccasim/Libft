@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strstrlen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luccasim <luccasim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luccasim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/01 19:55:19 by luccasim          #+#    #+#             */
-/*   Updated: 2014/03/16 18:39:35 by luccasim         ###   ########.fr       */
+/*   Created: 2016/11/14 17:05:45 by luccasim          #+#    #+#             */
+/*   Updated: 2016/11/14 17:07:35 by luccasim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <string.h>
 
-int		ft_putchar_fd(char c, int fd)
+size_t	ft_strstrlen(char **split)
 {
-	return (write(fd, &c, 1));
+	size_t	size;
+
+	size = 0;
+	while (*split)
+	{
+		size++;
+		split++;
+	}
+	return (size);
 }

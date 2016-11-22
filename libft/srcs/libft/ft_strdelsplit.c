@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strdelsplit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luccasim <luccasim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luccasim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/01 19:55:19 by luccasim          #+#    #+#             */
-/*   Updated: 2014/03/16 18:39:35 by luccasim         ###   ########.fr       */
+/*   Created: 2016/11/14 17:05:29 by luccasim          #+#    #+#             */
+/*   Updated: 2016/11/14 17:07:21 by luccasim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-int		ft_putchar_fd(char c, int fd)
+void	ft_strdelsplit(char **split)
 {
-	return (write(fd, &c, 1));
+	char	**tmp;
+
+	tmp = split;
+	while (*split)
+	{
+		free(*split);
+		split++;
+	}
+	free(tmp);
 }

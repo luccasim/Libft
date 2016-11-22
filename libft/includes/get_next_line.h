@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl.h                                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luccasim <luccasim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luccasim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/01/04 02:06:04 by luccasim          #+#    #+#             */
-/*   Updated: 2016/11/14 17:13:15 by luccasim         ###   ########.fr       */
+/*   Created: 2016/11/22 16:10:05 by luccasim          #+#    #+#             */
+/*   Updated: 2016/11/22 16:10:10 by luccasim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@
 # include <stdlib.h>
 # include "libft.h"
 
-# define BUF_SIZE 	100
-# define GNL_ERROR	-1
-# define GNL_READ	1
-# define GNL_END	0
+# define BUFF_SIZE 	42
 
 typedef struct	s_fd
 {

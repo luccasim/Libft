@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luccasim <luccasim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: luccasim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/01 19:55:19 by luccasim          #+#    #+#             */
-/*   Updated: 2014/03/16 18:39:35 by luccasim         ###   ########.fr       */
+/*   Created: 2016/11/22 16:24:37 by luccasim          #+#    #+#             */
+/*   Updated: 2016/11/22 16:24:41 by luccasim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_tool.h"
 #include <unistd.h>
 
-int		ft_putchar_fd(char c, int fd)
+int		main(int ac, char **av)
 {
-	return (write(fd, &c, 1));
+	char	*line;
+	int		fd;
+
+	if (ac == 2)
+	{
+		line = 0;
+		fd = open(*++av, O_RDONLY);
+		while (get_next_line(fd, &line) > 0)
+		{
+			PUTSTR(line);
+			ft_strdel(&line);
+		}
+	}
+	return (0);
 }

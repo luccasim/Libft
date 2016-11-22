@@ -25,22 +25,22 @@ NAME	=	libft.a
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ) > /dev/null 2>&1
 	@ranlib $(NAME)
 	@echo "\033[32;1m$(NAME) created successfully!\033[0m"
 
 $(DOBJ)/%.o:%.c
-	@mkdir -p $(ODIR)
+	@mkdir -p $(ODIR) > /dev/null 2>&1
 	@$(CC) $(INC) -c $< -o $@
 
 test: $(NAME) main.c $(HEAD)
 	llvm-gcc -o test main.c -L . -lft $(MLX) -I includes
 
 clean:
-	@/bin/rm -rf $(DOBJ)
+	@/bin/rm -rf $(DOBJ) > /dev/null 2>&1
 
 fclean: clean
-	@/bin/rm -rf $(NAME)
+	@/bin/rm -rf $(NAME) > /dev/null 2>&1
 	@echo "\033[31;1m$(NAME) removes!\033[0m"
 
 norme: $(SRC)
