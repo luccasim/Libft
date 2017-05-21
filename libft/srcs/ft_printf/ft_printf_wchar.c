@@ -49,7 +49,7 @@ static int		write_4byte_char(int c, char *tab)
 	else
 		norme(c, tab);
 	tab[len] = 0;
-	return (ft_printf_buffer(tab, BUF_WRITE));
+	return (ft_printf_buffer(tab, 0, BUF_WRITE));
 }
 
 static int		write_2byte_char(int c, char *tab)
@@ -72,9 +72,9 @@ static int		write_2byte_char(int c, char *tab)
 	}
 	tab[len] = 0;
 	if (!tab[0])
-		return (ft_printf_buffer(tab, BUF_CHAR));
+		return (ft_printf_buffer(tab, 0, BUF_CHAR));
 	else
-		return (ft_printf_buffer(tab, BUF_WRITE));
+		return (ft_printf_buffer(tab, 0, BUF_WRITE));
 }
 
 int				ft_printf_wchar(int c)

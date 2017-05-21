@@ -19,6 +19,6 @@ int		ft_printf_number(va_list ap)
 
 	flags = get_printf_flags(GET_FLAGS);
 	ptr = va_arg(ap, int *);
-	*ptr = ft_printf_buffer(NULL, 0);
+	*ptr = ft_printf_buffer(NULL, 0, 0);
 	return (0);
 }

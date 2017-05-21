@@ -16,6 +16,8 @@ void	ft_strdelsplit(char **split)
 {
 	char	**tmp;
 
+	if (!split)
+		return ;
 	tmp = split;
 	while (*split)
 	{

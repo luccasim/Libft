@@ -65,7 +65,7 @@ static int	invalid_conversion(t_printf_flags *flags)
 	marg = (flags->FLAGS_ZERO) ? '0' : ' ';
 	if (!flags->FLAGS_DASH)
 		ft_printf_margin(marg, flags->width - 1);
-	ft_printf_buffer(tab, BUF_CHAR);
+	ft_printf_buffer(tab, 0, BUF_CHAR);
 	if (flags->FLAGS_DASH)
 		ft_printf_margin(' ', flags->width - 1);
 	return (0);

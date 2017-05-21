@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_mlx.h"
-#include "ft_unix.h"
+#include "ft_printf.h"
 
 void	*ft_mlx_init_sglt(void)
 {
@@ -21,7 +21,7 @@ void	*ft_mlx_init_sglt(void)
 	{
 		if (!(mlx = mlx_init()))
 		{
-			PERROR("mlx_init() connexion fail");
+			PUTERR("mlx_init() connexion fail");
 			return (mlx);
 		}
 	}

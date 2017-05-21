@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_option.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luccasim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: luccasim <luccasim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/14 17:08:09 by luccasim          #+#    #+#             */
-/*   Updated: 2016/11/14 17:11:11 by luccasim         ###   ########.fr       */
+/*   Created: 2014/01/28 23:16:10 by luccasim          #+#    #+#             */
+/*   Updated: 2015/03/17 14:38:31 by luccasim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_unix.h"
 #include "libft.h"
 
-int	ft_is_option(char c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t n)
 {
-	char	*opt;
+	char		*d;
 
-	opt = ft_options_sglt();
-	if (!opt)
-		return (FAIL);
-	else
+	if (!dst || !src || n == 0)
+		return (0);
+	d = dst;
+	while (n > 1)
 	{
-		if (ft_strchr(opt, c))
-			return (c);
+		if (*src)
+			*d++ = *src++;
 		else
-			return (FAIL);
+		{
+			*d = 0;
+			return (ft_strlen(dst));
+		}
+		n--;
 	}
+	*d = 0;
+	return (ft_strlen(dst));
 }

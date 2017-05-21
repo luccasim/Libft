@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_mlx.h"
-#include "ft_unix.h"
 #include "libft.h"
+#include "ft_printf.h"
 
 t_image		*ft_mlx_image_new(uint32_t height, uint32_t width)
 {
@@ -34,7 +34,7 @@ t_image		*ft_mlx_image_new(uint32_t height, uint32_t width)
 		}
 		else
 		{
-			PERROR("mlx_new_image() failed!");
+			PUTERR("mlx_new_image() failed!");
 			return (NULL);
 		}
 	}

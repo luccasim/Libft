@@ -56,23 +56,27 @@ static int	write_char(char *buf, int *size, int c)
 	return (1);
 }
 
-int			ft_printf_buffer(char *str, int act)
+int			ft_printf_buffer(char *str, char **get, int act)
 {
 	static char		buf[BUF_SIZE + 1];
 	static int		size = 0;
 	static int		total = 0;
-	int				i;
 
-	i = total;
 	if (act == BUF_CHAR)
 		total += write_char(buf, &size, *str);
 	else if (act == BUF_WRITE)
 		total += write_str(buf, &size, str);
+	else if (act == BUF_GET)
+	{
+		buf[size] = 0;
+		*get = buf;
+		size = 0;
+		total = 0;
+	}
 	else if (act == BUF_READ)
 	{
 		read_buffer(buf, &size);
-		i = total;
 		total = 0;
 	}
-	return (i);
+	return (total);
 }

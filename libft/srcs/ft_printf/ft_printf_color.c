@@ -36,7 +36,7 @@ static int			write_color(char *color, char *style)
 	}
 	balise[i] = 'm';
 	balise[i + 1] = 0;
-	ft_printf_buffer(balise, BUF_WRITE);
+	ft_printf_buffer(balise, 0, BUF_WRITE);
 	return (1);
 }
 
@@ -131,7 +131,7 @@ int					ft_printf_color(char *str, va_list ap)
 	if (!i)
 	{
 		i = 1;
-		ft_printf_buffer("{", BUF_CHAR);
+		ft_printf_buffer("{", 0, BUF_CHAR);
 	}
 	return (i);
 }

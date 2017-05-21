@@ -12,7 +12,7 @@
 
 #include "ft_mlx.h"
 #include "libft.h"
-#include "ft_unix.h"
+#include "ft_printf.h"
 
 t_window	*ft_mlx_window_new(char *name, uint32_t height, uint32_t width)
 {
@@ -33,7 +33,7 @@ t_window	*ft_mlx_window_new(char *name, uint32_t height, uint32_t width)
 			new->mlx = mlx;
 		}
 		else
-			PERROR("fail allocation for window ptr");
+			PUTERR("fail allocation for window ptr");
 	}
 	return (new);
 }

@@ -10,23 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_tool.h"
+#include "ft_printf.h"
+#include "error.h"
+#include "get_next_line.h"
 #include <unistd.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 int		main(int ac, char **av)
 {
-	char	*line;
-	int		fd;
+	int  fd;
+	int  test;
+	struct stat st;
 
-	if (ac == 2)
-	{
-		line = 0;
-		fd = open(*++av, O_RDONLY);
-		while (get_next_line(fd, &line) > 0)
-		{
-			PUTSTR(line);
-			ft_strdel(&line);
-		}
-	}
-	return (0);
+	fd = open("toto", O_CREAT | O_RDWR, 0777);
+	write(fd, "Bonjour", 7);
+	fstat(fd, &st);
+	test = open("hello", O_CREAT | O_RDONLY, st.st_mode);
+	PUTNBR(fd);
+	close(fd);
+	close(test);
+	return (EXIT);
 }

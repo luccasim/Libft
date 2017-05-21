@@ -102,7 +102,7 @@ int				ft_printf_wstring(va_list ap, t_printf_flags *flags)
 	if (!flags->FLAGS_DASH)
 		ft_printf_margin(marg, flags->width - len);
 	if (!str)
-		ft_printf_buffer("(null)", BUF_WRITE);
+		ft_printf_buffer("(null)", 0, BUF_WRITE);
 	else
 		write_wstring(str, prec, l_prec);
 	if (flags->FLAGS_DASH)

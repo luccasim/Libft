@@ -20,6 +20,6 @@ void	ft_printf_margin(char c, int a)
 	{
 		i = 0;
 		while (i++ < a)
-			ft_printf_buffer(&c, BUF_CHAR);
+			ft_printf_buffer(&c, 0, BUF_CHAR);
 	}
 }

@@ -45,11 +45,11 @@ int			ft_printf_join(t_printf_flags *flags, char *str)
 	if (!flags->FLAGS_DASH)
 	{
 		if (marg == '0')
-			ft_printf_buffer(str, BUF_WRITE);
+			ft_printf_buffer(str, 0, BUF_WRITE);
 		ft_printf_margin(marg, flags->width - prec);
 	}
 	if (marg == ' ')
-		ft_printf_buffer(str, BUF_WRITE);
+		ft_printf_buffer(str, 0, BUF_WRITE);
 	if (prec > size && size)
 		ft_printf_margin(marg_conversion(flags->conversion), prec - size);
 	ft_printf_tmp(NULL, 0, SEND);

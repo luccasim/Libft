@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <inttypes.h>
+# include <unistd.h>
 
 # define ENDL			"\n"
 # define WORD			"{%s}"
@@ -28,8 +29,12 @@
 # define PUTTIME(a)		ft_printf("{g:1:%hk}\n", a)
 # define PUTDATE(a)		ft_printf("{b:1:%lk}\n", a)
 # define PUTPTR(a)		ft_printf("{p:1:%p}\n", a)
+# define PUTERR(a)		ft_fprintf(2, "{r:1:%s}\n", a)
 
 int		ft_printf(char *str, ...);
 int		ft_fprintf(int fd, char *str, ...);
+int		ft_sprintf(char *str, char *format, ...);
+int		ft_snprintf(char *str, size_t size, char *format, ...);
+int		ft_asprintf(char **ret, char *format, ...);
 
 #endif

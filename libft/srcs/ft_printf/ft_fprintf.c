@@ -26,10 +26,10 @@ int	ft_fprintf(int fd, char *str, ...)
 		else if (*str == '{')
 			str += ft_printf_color(str, ap);
 		else
-			ft_printf_buffer(str++, BUF_CHAR);
+			ft_printf_buffer(str++, 0, BUF_CHAR);
 	}
 	va_end(ap);
-	ret = ft_printf_buffer(str, BUF_READ);
+	ret = ft_printf_buffer(str, 0, BUF_READ);
 	ft_printf_fd(1, SET);
 	return (ret);
 }

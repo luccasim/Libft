@@ -30,7 +30,7 @@ static int	write_char(va_list ap, t_printf_flags *flags)
 	else
 	{
 		tab[0] = wch;
-		ft_printf_buffer(tab, BUF_CHAR);
+		ft_printf_buffer(tab, 0, BUF_CHAR);
 	}
 	if (flags->FLAGS_DASH)
 		ft_printf_margin(' ', size);
@@ -47,7 +47,7 @@ int			ft_printf_char(va_list ap)
 	if (!flags->setting)
 	{
 		tab[0] = va_arg(ap, int);
-		ft_printf_buffer(tab, BUF_CHAR);
+		ft_printf_buffer(tab, 0, BUF_CHAR);
 	}
 	else
 		write_char(ap, flags);

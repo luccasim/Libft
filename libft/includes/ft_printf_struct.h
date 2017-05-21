@@ -24,6 +24,7 @@
 # define BUF_WRITE 		2
 # define BUF_CHAR 		4
 # define BUF_COLOR	 	8
+# define BUF_GET		16
 # define BUF_SIZE		1000
 # define RESET_FLAGS	0
 # define GET_FLAGS 		1
@@ -63,7 +64,7 @@ int				ft_printf_double(double f, int size, char conversion);
 int				ft_printf_number(va_list ap);
 int				ft_printf_strequ(char *s1, char *s2);
 int				ft_printf_atoi(char **arg);
-int				ft_printf_buffer(char *str, int act);
+int				ft_printf_buffer(char *str, char **get, int act);
 int				ft_printf_lexer(char *str, va_list ap);
 int				ft_printf_date(va_list ap);
 int				ft_printf_integer(va_list ap);

@@ -25,8 +25,8 @@ int	ft_printf(char *str, ...)
 		else if (*str == '{')
 			str += ft_printf_color(str, ap);
 		else
-			ft_printf_buffer(str++, BUF_CHAR);
+			ft_printf_buffer(str++, 0, BUF_CHAR);
 	}
 	va_end(ap);
-	return (ft_printf_buffer(str, BUF_READ));
+	return (ft_printf_buffer(str, 0, BUF_READ));
 }

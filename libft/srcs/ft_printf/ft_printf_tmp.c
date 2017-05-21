@@ -41,7 +41,7 @@ int				ft_printf_tmp(char *str, int s, int act)
 	else if (act == GET)
 		return (size);
 	else if (act == SEND)
-		ft_printf_buffer(tmp, BUF_WRITE);
+		ft_printf_buffer(tmp, 0, BUF_WRITE);
 	size = 0;
 	tmp[0] = 0;
 	return (size);

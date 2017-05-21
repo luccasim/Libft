@@ -22,7 +22,7 @@ int	ft_printf_percentage(va_list ap)
 	margin = (flags->FLAGS_ZERO) ? '0' : ' ';
 	if (!flags->FLAGS_DASH)
 		ft_printf_margin(margin, flags->width - 1);
-	ft_printf_buffer("%", BUF_WRITE);
+	ft_printf_buffer("%", 0, BUF_WRITE);
 	if (flags->FLAGS_DASH)
 		ft_printf_margin(' ', flags->width - 1);
 	return (0);

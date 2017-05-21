@@ -21,6 +21,7 @@
 # define TIME_ACTION_END	1
 # define TIME_START			ft_time(TIME_ACTION_START)
 # define TIME_END			ft_time(TIME_ACTION_END)
+# define TIMESTAMP			time(0)
 
 double	ft_cps(clock_t clock);
 void	ft_time(int action);
